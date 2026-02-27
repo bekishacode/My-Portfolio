@@ -21,14 +21,15 @@ const experienceCardVariants: Variants = {
   }
 };
 
-// Fix: Add Variants type
+// Fix: Replace yoyo with repeat and repeatType
 const dotPulseVariants: Variants = {
   initial: { scale: 1 },
   hover: { 
     scale: 1.5,
     transition: {
       duration: 0.3,
-      yoyo: Infinity
+      repeat: Infinity,
+      repeatType: "mirror" as const
     }
   }
 };
