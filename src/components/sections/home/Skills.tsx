@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { skills } from "@/data/skills";
 import { fadeInUp, staggerContainer } from "../../../utils/animations";
 import SectionTitle from "../../ui/SectionTitle";
