@@ -1,33 +1,31 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { experiences } from "@/data/experience";
 import { fadeInUp, staggerContainer, slideInFromLeft } from "../../../utils/animations";
 import SectionTitle from "../../ui/SectionTitle";
 
-// Experience card hover animation
-const experienceCardVariants = {
+// Fix: Add Variants type and as const
+const experienceCardVariants: Variants = {
   initial: { 
-    scale: 1,
-    boxShadow: "0 10px 30px -15px rgba(0,0,0,0.1)"
+    scale: 1
+    // boxShadow removed from variants
   },
   hover: { 
     scale: 1.02,
-    boxShadow: "0 20px 40px -15px rgba(0,0,0,0.2)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 300,
       damping: 20
     }
   }
 };
 
-// Timeline dot pulse animation
-const dotPulseVariants = {
+// Fix: Add Variants type
+const dotPulseVariants: Variants = {
   initial: { scale: 1 },
   hover: { 
     scale: 1.5,
-    backgroundColor: "hsl(var(--primary))",
     transition: {
       duration: 0.3,
       yoyo: Infinity
@@ -73,15 +71,17 @@ export default function Experience() {
               <motion.div
                 className="absolute left-0 top-1.5 w-5 h-5 rounded-full bg-primary border-4 border-background cursor-pointer"
                 variants={dotPulseVariants}
+                initial="initial"
                 whileHover="hover"
               />
               
-              {/* Experience Card */}
+              {/* Experience Card - boxShadow moved to style prop */}
               <motion.div
                 variants={experienceCardVariants}
                 initial="initial"
                 whileHover="hover"
                 className="bg-card rounded-xl p-6 shadow-lg border border-border relative overflow-hidden"
+                style={{ boxShadow: "0 10px 30px -15px rgba(0,0,0,0.1)" }}
               >
                 {/* Animated corner effect on hover */}
                 <motion.div

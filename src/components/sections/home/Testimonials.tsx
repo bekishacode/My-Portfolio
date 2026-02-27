@@ -1,47 +1,46 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { testimonials } from "@/data/testimonials";
 import { fadeInUp, staggerContainer } from "../../../utils/animations";
 import SectionTitle from "../../ui/SectionTitle";
 
-// Testimonial card hover animation
-const testimonialCardVariants = {
+// Fix: Add Variants type and as const
+const testimonialCardVariants: Variants = {
   initial: { 
     y: 0,
     scale: 1,
-    rotateZ: 0,
-    boxShadow: "0 10px 30px -15px rgba(0,0,0,0.1)"
+    rotateZ: 0
+    // boxShadow removed
   },
   hover: { 
     y: -15,
     scale: 1.03,
     rotateZ: 1,
-    boxShadow: "0 30px 50px -20px rgba(0,0,0,0.3)",
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 300,
       damping: 15
     }
   }
 };
 
-// Quote mark animation
-const quoteVariants = {
+// Fix: Add Variants type
+const quoteVariants: Variants = {
   initial: { scale: 0.8, opacity: 0.3 },
   hover: { 
     scale: 1.2, 
     opacity: 1,
     rotateZ: 5,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 10
     }
   }
 };
 
-// Star rating animation
+// Star rating animation - this one is fine as is
 const starVariants = {
   initial: { scale: 1 },
   hover: (i: number) => ({
@@ -77,7 +76,10 @@ export default function Testimonials() {
               initial="initial"
               whileHover="hover"
               className="bg-card rounded-xl p-6 shadow-lg border border-border relative overflow-hidden group"
-              style={{ originY: 0 }}
+              style={{ 
+                boxShadow: "0 10px 30px -15px rgba(0,0,0,0.1)",
+                originY: 0 
+              }}
             >
               {/* Background pattern on hover */}
               <motion.div
