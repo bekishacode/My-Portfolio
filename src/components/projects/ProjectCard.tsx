@@ -65,7 +65,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       duration: 4, // Slower animation
       repeat: Infinity,
       repeatDelay: 2 ,
-      ease: "linear"
+      ease: [0.25, 0.25, 0.75, 0.75]
     }
   };
 
@@ -105,7 +105,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         transition={{
           duration: 4,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: [0.25, 0.25, 0.75, 0.75]
         }}
         style={{
           background: `radial-gradient(circle, ${project.category === 'salesforce' ? '#3b82f6' : project.category === 'integration' ? '#a855f7' : '#22c55e'}, transparent 70%)`,
