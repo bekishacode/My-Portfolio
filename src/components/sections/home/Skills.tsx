@@ -191,23 +191,23 @@ export default function Skills() {
               ))}
             </div>
           </motion.div>
-
           {/* Frontend Skills Card */}
           <motion.div
             variants={skillCardVariants}
             initial="initial"
             whileHover="hover"
             className="bg-card rounded-xl p-6 shadow-lg border border-border relative overflow-hidden group"
-            style={{ boxShadow: "0 10px 30px -15px rgba(0,0,0,0.1)" }}
+            style={{ boxShadow: "0 10px 30px -15px rgba(0,0,0,0.1)" }} // Move boxShadow to style
           >
+            {/* Animated background gradient on hover */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/5 to-accent/0"
+              className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0"
               initial={{ x: '-100%' }}
               animate={{ x: '100%' }}
               transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 2 }}
             />
             
-            <h3 className="text-2xl font-bold mb-6 text-accent relative z-10">
+            <h3 className="text-2xl font-bold mb-6 text-primary relative z-10">
               {categoryTitles.frontend}
             </h3>
             <div className="space-y-4 relative z-10">
@@ -219,10 +219,10 @@ export default function Skills() {
                   className="cursor-default"
                 >
                   <div className="flex justify-between mb-1">
-                    <span className="font-medium group-hover:text-accent transition-colors">
+                    <span className="font-medium group-hover:text-primary transition-colors">
                       {skill.name}
                     </span>
-                    <span className="text-muted-foreground group-hover:text-accent/80 transition-colors">
+                    <span className="text-muted-foreground group-hover:text-primary/80 transition-colors">
                       {skill.level}%
                     </span>
                   </div>
@@ -231,8 +231,9 @@ export default function Skills() {
                       initial={{ width: 0 }}
                       whileInView={{ width: `${skill.level}%` }}
                       transition={{ duration: 1, delay: 0.2 }}
-                      className="bg-accent h-2.5 rounded-full relative"
+                      className="bg-primary h-2.5 rounded-full relative"
                     >
+                      {/* Shine effect on hover - simplified */}
                       <motion.div
                         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                         animate={{ 
