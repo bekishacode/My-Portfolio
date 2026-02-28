@@ -65,7 +65,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       duration: 4, // Slower animation
       repeat: Infinity,
       repeatDelay: 2 ,
-      ease: "easeInOut"
+      ease: "linear"
     }
   };
 
