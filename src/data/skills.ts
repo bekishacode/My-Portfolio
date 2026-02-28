@@ -34,6 +34,12 @@ export const skills: Skill[] = [
     category: "frontend",
   },
   {
+    name: "Next Js",
+    icon: "/icons/react.svg",
+    level: 75,
+    category: "frontend",
+  },
+  {
     name: "TypeScript",
     icon: "/icons/typescript.svg",
     level: 70,
@@ -44,6 +50,25 @@ export const skills: Skill[] = [
     icon: "/icons/tailwind.svg",
     level: 80,
     category: "frontend",
+  },
+  // Backend Skills
+  {
+    name: "Node js",
+    icon: "/icons/react.svg",
+    level: 75,
+    category: "backend",
+  },
+  {
+    name: "Express js",
+    icon: "/icons/react.svg",
+    level: 75,
+    category: "backend",
+  },
+  {
+    name: "Nest js",
+    icon: "/icons/typescript.svg",
+    level: 70,
+    category: "backend",
   },
   // Tools
   {

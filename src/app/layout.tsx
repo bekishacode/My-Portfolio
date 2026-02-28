@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Salesforce Developer Portfolio",
+  title: "Bereket Fikre",
   description: "Professional portfolio showcasing Salesforce development expertise",
 };
 

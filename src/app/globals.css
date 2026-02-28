@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
+@import "../styles/section-backgrounds.css";
 
 @layer base {
   :root {
@@ -186,4 +187,11 @@ html {
   color: white;
   font-size: 2rem;
   font-weight: bold;
+}
+/* Add at the end of your globals.css */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
 }

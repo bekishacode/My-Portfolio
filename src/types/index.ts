@@ -1,14 +1,22 @@
 export interface Project {
   id: string;
+  slug: string;              // URL-friendly name
   title: string;
-  description: string;
+  shortDescription: string;  // For listing page
+  fullDescription: string;   // For detail page
   image: string;
   technologies: string[];
-  category: 'salesforce' | 'web' | 'other';
+  category: 'salesforce' | 'integration' | 'lwc' | 'api';
   liveUrl?: string;
   githubUrl?: string;
   featured: boolean;
   completionDate: string;
+  client?: string;           // Bank of Abyssinia etc.
+  role: string;              // Your role
+  challenges: string[];      // Key challenges overcome
+  solutions: string[];       // Solutions implemented
+  results: string[];         // Business results
+  images?: string[];         // Additional screenshots
 }
 
 export interface Skill {

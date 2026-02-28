@@ -4,11 +4,14 @@ import { motion, Variants } from "framer-motion";
 import { skills } from "@/data/skills";
 import { fadeInUp, staggerContainer } from "../../../utils/animations";
 import SectionTitle from "../../ui/SectionTitle";
+import { sectionBackgrounds } from "@/config/sectionBackgrounds";
+import { useEffect } from "react";
 
 const categoryTitles = {
   salesforce: "Salesforce Expertise",
   frontend: "Frontend Development",
-  tools: "Tools & Technologies"
+  tools: "Tools & Technologies",
+  backend: "Backend Development"
 };
 
 // Fix 1: Properly typed skill card variants
@@ -42,13 +45,18 @@ const skillItemVariants: Variants = {
   }
 };
 
+// Use skills background from config
+const sectionBg = sectionBackgrounds.home.skills;
+
 export default function Skills() {
+
   const salesforceSkills = skills.filter(s => s.category === 'salesforce');
   const frontendSkills = skills.filter(s => s.category === 'frontend');
   const toolsSkills = skills.filter(s => s.category === 'tools');
+  const backendSkills = skills.filter(s => s.category === 'backend')
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className={`py-20 ${sectionBg}`}>
       <div className="container mx-auto px-4">
         <SectionTitle 
           title="Technical Skills" 
@@ -105,6 +113,66 @@ export default function Skills() {
                       className="bg-primary h-2.5 rounded-full relative"
                     >
                       {/* Shine effect on hover - simplified */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                        animate={{ 
+                          x: ['-100%', '200%']
+                        }}
+                        transition={{ 
+                          duration: 1.5, 
+                          repeat: Infinity, 
+                          repeatDelay: 1,
+                          ease: "linear"
+                        }}
+                      />
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Backend Skills Card */}
+          <motion.div
+            variants={skillCardVariants}
+            initial="initial"
+            whileHover="hover"
+            className="bg-card rounded-xl p-6 shadow-lg border border-border relative overflow-hidden group"
+            style={{ boxShadow: "0 10px 30px -15px rgba(0,0,0,0.1)" }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-accent/0 via-accent/5 to-accent/0"
+              initial={{ x: '-100%' }}
+              animate={{ x: '100%' }}
+              transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 2 }}
+            />
+            
+            <h3 className="text-2xl font-bold mb-6 text-accent relative z-10">
+              {categoryTitles.backend}
+            </h3>
+            <div className="space-y-4 relative z-10">
+              {backendSkills.map((skill) => (
+                <motion.div
+                  key={skill.name}
+                  variants={skillItemVariants}
+                  whileHover="hover"
+                  className="cursor-default"
+                >
+                  <div className="flex justify-between mb-1">
+                    <span className="font-medium group-hover:text-accent transition-colors">
+                      {skill.name}
+                    </span>
+                    <span className="text-muted-foreground group-hover:text-accent/80 transition-colors">
+                      {skill.level}%
+                    </span>
+                  </div>
+                  <div className="w-full bg-muted rounded-full h-2.5 overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      transition={{ duration: 1, delay: 0.2 }}
+                      className="bg-accent h-2.5 rounded-full relative"
+                    >
                       <motion.div
                         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
                         animate={{ 

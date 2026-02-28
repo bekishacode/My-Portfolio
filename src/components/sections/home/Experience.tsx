@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import { experiences } from "@/data/experience";
 import { fadeInUp, staggerContainer, slideInFromLeft } from "../../../utils/animations";
 import SectionTitle from "../../ui/SectionTitle";
+import { sectionBackgrounds } from "@/config/sectionBackgrounds";
 
 // Fix: Add Variants type and as const
 const experienceCardVariants: Variants = {
@@ -34,9 +35,12 @@ const dotPulseVariants: Variants = {
   }
 };
 
+// Use experience background from about section
+const sectionBg = sectionBackgrounds.about.experience;
+
 export default function Experience() {
   return (
-    <section className="py-20">
+    <section className={`py-20 ${sectionBg}`}>
       <div className="container mx-auto px-4">
         <SectionTitle 
           title="Work Experience" 

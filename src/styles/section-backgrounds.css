@@ -1,0 +1,42 @@
+@layer utilities {
+  .bg-muted\/30 {
+    background-color: hsl(var(--muted) / 0.3);
+  }
+  
+  .bg-muted\/20 {
+    background-color: hsl(var(--muted) / 0.2);
+  }
+  
+  .bg-primary\/5 {
+    background-color: hsl(var(--primary) / 0.05);
+  }
+  .bg-primary\/30 { background-color: hsl(var(--primary) / 0.3); }
+  
+  .bg-accent\/5 {
+    background-color: hsl(var(--accent) / 0.05);
+  }
+  
+  .bg-secondary\/10 {
+    background-color: hsl(var(--secondary) / 0.1);
+  }
+  
+  .bg-card {
+    background-color: hsl(var(--card));
+  }
+  
+  .bg-gradient-primary {
+    background: linear-gradient(to bottom right, 
+      hsl(var(--primary) / 0.05), 
+      hsl(var(--background)), 
+      hsl(var(--accent) / 0.05)
+    );
+  }
+  
+  .bg-gradient-accent {
+    background: linear-gradient(to top left, 
+      hsl(var(--accent) / 0.05), 
+      hsl(var(--background)), 
+      hsl(var(--primary) / 0.05)
+    );
+  }
+}

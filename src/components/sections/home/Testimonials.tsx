@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import { testimonials } from "@/data/testimonials";
 import { fadeInUp, staggerContainer } from "../../../utils/animations";
 import SectionTitle from "../../ui/SectionTitle";
+import { sectionBackgrounds } from "@/config/sectionBackgrounds";
 
 // Fix: Add Variants type and as const
 const testimonialCardVariants: Variants = {
@@ -53,9 +54,12 @@ const starVariants = {
   })
 };
 
+// Use skills background from config
+const sectionBg = sectionBackgrounds.home.testimonials;
+
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className={`py-20 ${sectionBg}`}>
       <div className="container mx-auto px-4">
         <SectionTitle 
           title="Recommendations" 
